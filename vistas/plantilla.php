@@ -18,6 +18,9 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
 
+  <!-- Icono inversiones Lisieux -->
+  <link rel="icon" href="vistas/img/plantilla/icono-lisieux.png">
+
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   
@@ -40,10 +43,32 @@
 <div class="wrapper">
   <!-- =============================================== -->
   <?php
+
+include "modulos/cabezote.php";
+include "modulos/menu.php";
+
+  if(isset($_GET["ruta"])){
+    if($_GET["ruta"] == "inicio" || 
+    $_GET["ruta"] == "usuarios" || 
+    $_GET["ruta"] == "categorias" || 
+    $_GET["ruta"] == "productos" || 
+    $_GET["ruta"] == "clientes" ||
+    $_GET["ruta"] == "ventas" || 
+    $_GET["ruta"] == "crear-ventas" ||  
+    $_GET["ruta"] == "reportes"
+    ){
+      include "modulos/".$_GET["ruta"].".php";
+    }
+    else{
+      include "modulos/404.php";
+    }
+  }
+  else
+  {
+    include "modulos/inicio.php";
+  }
     
-    include "modulos/cabezote.php";
-    include "modulos/menu.php";
-    include "modulos/contenido.php";
+
     include "modulos/footer.php";
 
   ?>

@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logotipo -->
-    <a href="" class="logo">
+    <a href="inicio" class="logo">
         <!-- logo mini -->
         <span class="logo-mini">
             <img src="vistas/img/plantilla/icono-lisieux.png" class="img-responsive" style="padding:10px">
