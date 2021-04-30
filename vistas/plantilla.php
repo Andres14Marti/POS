@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Inversiones Padova</title>
+  <title>Inversiones Lisieux</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -28,24 +28,25 @@
   <script src="vistas/bower_components/jquery/dist/jquery.min.js"></script>
   <!-- Bootstrap 3.3.7 -->
   <script src="vistas/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- SlimScroll -->
-  <script src="vistas/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
   <!-- FastClick -->
   <script src="vistas/bower_components/fastclick/lib/fastclick.js"></script>
   <!-- AdminLTE App -->
   <script src="vistas/dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="vistas/dist/js/demo.js"></script>
  
 
 </head>
-<body class="hold-transition skin-blue-light sidebar-collapse sidebar-mini">
+<body class="hold-transition skin-red sidebar-collapse sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- =============================================== -->
-<?php
-  include "modulos/cabezote.php";
-?>
+  <?php
+    
+    include "modulos/cabezote.php";
+    include "modulos/menu.php";
+    include "modulos/contenido.php";
+    include "modulos/footer.php";
+
+  ?>
  
 
   <!-- =============================================== -->
