@@ -1,3 +1,9 @@
+<?php
+
+ session_start();
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,50 +44,71 @@
  
 
 </head>
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
+<body class="hold-transition skin-purple sidebar-collapse sidebar-mini login-page">
 <!-- Site wrapper -->
 
   <!-- =============================================== -->
   <?php
 
-    if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
-      
-      echo '<div class="wrapper">';
+if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
 
-        include "modulos/cabezote.php";
-        include "modulos/menu.php";
+  echo '<div class="wrapper">';
 
-        if(isset($_GET["ruta"])){
-          if($_GET["ruta"] == "inicio" || 
-          $_GET["ruta"] == "usuarios" || 
-          $_GET["ruta"] == "categorias" || 
-          $_GET["ruta"] == "productos" || 
-          $_GET["ruta"] == "clientes" ||
-          $_GET["ruta"] == "ventas" || 
-          $_GET["ruta"] == "crear-ventas" ||  
-          $_GET["ruta"] == "reportes"
-          ){
-            include "modulos/".$_GET["ruta"].".php";
-          }
-          else{
-            include "modulos/404.php";
-          }
-        }
-        else
-        {
-          include "modulos/inicio.php";
-        }
-          
+   /*=============================================
+   CABEZOTE
+   =============================================*/
 
-            include "modulos/footer.php";
+   include "modulos/cabezote.php";
 
-      echo '</div>';   
+   /*=============================================
+   MENU
+   =============================================*/
 
-    }
-    else{
-      include "modulos/login.php";
-    }
+   include "modulos/menu.php";
 
+   /*=============================================
+   CONTENIDO
+   =============================================*/
+
+   if(isset($_GET["ruta"])){
+
+     if($_GET["ruta"] == "inicio" ||
+        $_GET["ruta"] == "usuarios" ||
+        $_GET["ruta"] == "categorias" ||
+        $_GET["ruta"] == "productos" ||
+        $_GET["ruta"] == "clientes" ||
+        $_GET["ruta"] == "ventas" ||
+        $_GET["ruta"] == "crear-venta" ||
+        $_GET["ruta"] == "reportes" ||
+        $_GET["ruta"] == "salir"){
+
+       include "modulos/".$_GET["ruta"].".php";
+
+     }else{
+
+       include "modulos/404.php";
+
+     }
+
+   }else{
+
+     include "modulos/inicio.php";
+
+   }
+
+   /*=============================================
+   FOOTER
+   =============================================*/
+
+   include "modulos/footer.php";
+
+   echo '</div>';
+
+ }else{
+
+   include "modulos/login.php";
+
+ }
   
 
   ?>

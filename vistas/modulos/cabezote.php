@@ -25,7 +25,7 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <li class="dropdown user user-menu">
-                    <a href="" class="dropdown-toggle" data-toggle ="deopdown">
+                    <a href="" class="dropdown-toggle" data-toggle ="dropdown">
                         <img src="vistas/img/usuarios/default/anonymous.png" alt="" class="user-image">
                         <span class="hidden-xs">Usuario Administrador</span>
                     </a>
@@ -34,7 +34,7 @@
                     <ul class="dropdown-menu">
                         <li class="user-body">
                             <div class="pull-right">
-                                <a href="" class="btn btn-default btn-flat">Salir</a>
+                                <a href="salir" class="btn btn-default btn-flat">Salir</a>
                             </div>
                         </li>
                     </ul>
