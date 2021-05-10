@@ -17,12 +17,12 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-            <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">
+            <button class="btn btn-primary" style="background: #605CA8;" data-toggle="modal" data-target="#modalAgregarUsuario">
               Agregar Usuario
             </button>
         </div>
         <div class="box-body">
-          <table class="table table-bordered table-striped">
+          <table class="table table-bordered table-striped dt-responsive tablas">
             <thead>
               <tr>
                 <th>Id</th>
@@ -76,19 +76,78 @@
 
       <!-- Contenido de Modal -->
       <div class="modal-content">
-      <!-- modal-header -->
-        <div class="modal-header">
-          <button type="button" class="close" data-simiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <!--Modal-Body  -->
-        <div class="modal-body">
-          <p>Algo mas</p>
-        </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" dtat-dismiss="modal">Cerrar</button>
-        </div>
+        <form role="form" method="POST"  enctype="multipart/form-data">
+      <!-- modal-header -->
+            <div class="modal-header" style="background: #605CA8; color:white;">
+              <button type="button" style="background: #605CA8;" class="close" data-simiss="modal">&times;</button>
+              <h4 class="modal-title">Agregar Usuario</h4>
+            </div>
+            <!--Modal-Body  -->
+            <div class="modal-body">
+              <div class="box-body">
+              <!-- Entrada de Formulario -->
+              <!-- Nombre -->
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                      <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar Nombre" required>
+                    
+                    </div>
+                  </div>
+              <!--  Entrada de Usuario -->
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                      <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar Usuario" required>
+                    
+                    </div>
+                  </div>
+
+                  <!-- Entrada de PWD -->
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                      <input type="password" class="form-control input-lg" name="nuevoPasword" placeholder="Ingresar Contraseña" required>
+                    
+                    </div>
+                  </div>
+
+                  <!-- Entrada seleccion de Perfil -->
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                      <select name="nuevoPerfil" class="form-contorl input-lg">
+                        <option value="">Seleccionar Perfil</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Especial">ESpecial</option>
+                        <option value="Administrador">Vendedor</option>
+                      
+                      </select>
+                    </div>
+                  </div>
+
+
+                  <!-- Entradad para Subir Foto -->
+                  <div class="form-group">
+                    <div class="panel">Subir Foto</div>
+                    <input type="file" id="nuevaFoto" name="nuevaFoto">
+                    <p class="help-block">Peso Máximo de la foto 200 MB</p>
+                      <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbail" width="100px" alt="">
+                  </div>
+
+
+              </div>
+              <p></p>
+            </div>
+
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" style="background: #605CA8; color:#fafafa;" dtat-dismiss="modal">Salir</button>
+
+              <button type="submit" class="btn btn-primary" style="background: #605CA8;">Guardar Usuario</button>
+          </div>
+        </form> 
       </div>
     </div>
   </div>
