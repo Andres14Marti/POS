@@ -67,10 +67,6 @@
   <!-- /.content-wrapper -->
 
   <!-- Ventana modal -->
-
-
-  <!-- ventana Modal fin -->
-
   <div id="modalAgregarUsuario" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -109,7 +105,7 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                      <input type="password" class="form-control input-lg" name="nuevoPasword" placeholder="Ingresar Contraseña" required>
+                      <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar Contraseña" required>
                     
                     </div>
                   </div>
@@ -121,7 +117,7 @@
                       <select name="nuevoPerfil" class="form-contorl input-lg">
                         <option value="">Seleccionar Perfil</option>
                         <option value="Administrador">Administrador</option>
-                        <option value="Especial">ESpecial</option>
+                        <option value="Especial">Especial</option>
                         <option value="Administrador">Vendedor</option>
                       
                       </select>
@@ -141,13 +137,22 @@
               </div>
               <p></p>
             </div>
-
+          <!-- Modal Footer -->
           <div class="modal-footer">
               <button type="button" class="btn btn-default pull-left" style="background: #605CA8; color:#fafafa;" dtat-dismiss="modal">Salir</button>
 
               <button type="submit" class="btn btn-primary" style="background: #605CA8;">Guardar Usuario</button>
           </div>
+
+          <?php
+            $crearUsuario = new ControladorUsuarios();
+            $crearUsuario -> ctrCrearUsuario();
+          ?>
         </form> 
       </div>
     </div>
   </div>
+
+  <!-- ventana Modal fin -->
+
+  

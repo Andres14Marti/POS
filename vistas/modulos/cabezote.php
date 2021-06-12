@@ -9,7 +9,7 @@
 
         <!-- Logo Normal -->
         <span class="logo-lg">
-            <img src="vistas/img/plantilla/Logo-lineal-blanco.png" class="img-responsive" style="padding:3px 30px">
+            <img src="vistas/img/plantilla/LogoSystem.png" class="img-responsive" style="padding:10px 0px">
 
         </span>
     </a>

@@ -55,9 +55,22 @@
   <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
   <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
   <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
+
+  <!-- Sweet Alert -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <!-- <script src="vistas/plugins/SweetAlert2/sweetalert2.all.js"></script>
+  <link rel="stylesheet" href="vistas/plugins/SweetAlert2/sweetalert2.min.css"> -->
+
+
 </head>
 <body class="hold-transition skin-purple sidebar-collapse sidebar-mini login-page">
 <!-- Site wrapper -->
+
+
 
   <!-- =============================================== -->
   <?php

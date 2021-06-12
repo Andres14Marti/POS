@@ -6,7 +6,7 @@ class ControladorUsuarios{
 	INGRESO DE USUARIO
 	=============================================*/
 
-	public function ctrIngresoUsuario(){
+	static public function ctrIngresoUsuario(){
 
 		if(isset($_POST["ingUsuario"])){
 
@@ -42,4 +42,67 @@ class ControladorUsuarios{
 
 	}
 
+	/*=============================================
+		REGISTRO DE USUARIO
+	=============================================*/
+	Static public function ctrCrearUsuario(){
+		if(isset($_POST["nuevoUsuario"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ]+$/',$_POST["nuevoNombre"]) &&
+			   preg_match('/^[a-zA-Z0-9]+$/',$_POST["nuevoUsuario"]) &&
+			   preg_match('/^[a-zA-Z0-9]+$/',$_POST["nuevoPassword"])){
+
+				$tabla = "usuarios";
+
+				$datos = array("nombre" => $_POST["nuevoNombre"],
+							   "usuario"=> $_POST["nuevoUsuario"],
+							   "password"=>$_POST["nuevoPassword"],
+							   "perfil" =>$_POST["nuevoPerfil"]);
+				$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
+
+				if($respuesta === "ok"){
+					echo '<script>
+				   
+				   		
+							Swal.fire({
+								title: "Success",
+								text: "El usuario ha sido creado,
+								icon: "success",
+								showConfirmButton: true,
+								confirmButtonText: "Cerrar",
+								closeOnConfirm: false
+							
+							}).then((result)=>{
+								if(result.value){
+									window.location = "usuarios";   
+								}
+							});
+				
+							</script>';
+
+				}
+
+			   }
+			   else
+			   {
+				   echo '<script>
+				   
+				   		
+				   		Swal.fire({
+							   title: "Error",
+							   text: "El usuario no debe ir vacio o con caracteres especiales",
+							   icon: "error",
+							   showConfirmButton: true,
+							   confirmButtonText: "Cerrar",
+							   closeOnConfirm: false
+							
+						   }).then((result)=>{
+							   if(result.value){
+								   window.location = "usuarios";   
+								}
+							});
+				 
+				   		</script>';
+			   }
+		}
+	}
 }
