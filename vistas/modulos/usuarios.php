@@ -25,7 +25,7 @@
           <table class="table table-bordered table-striped dt-responsive tablas">
             <thead>
               <tr>
-                <th>Id</th>
+                <th style="width:10px">Id</th>
                 <th>Nombre</th>
                 <th>Usuario</th>
                 <th>Foto</th>
@@ -38,22 +38,57 @@
 
             <tbody>
 
-            <tr>
-              <td>1</td>
-              <td>Usuario Administrador</td>
-              <td>admin</td>
-              <td><img src="vistas/img/default/anonymous.png" class="img-thumbnail " width="40px" alt="perfil"></td>
-              <td>Administrador</td>
-              <td><button class="btn btn-success btn-xs">Activado</button></td>
-              <td>2021-04-04 03:09:10</td>
-              <td>
-                <div class="btn-group">
-                
-                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                </div>
-              </td>
-            </tr>
+            <?php
+
+              $item = null;
+              $valor = null;
+
+              $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+
+              foreach($usuarios as $key => $value){
+                echo '<tr>
+                        <td>'.$value["id"].'</td>
+                        <td>'.$value["nombre"].'</td>
+                        <td>'.$value["usuario"].'</td>';
+
+                        if($value["foto"] != ""){
+                          echo '<td><img src="'.$value["foto"].'" class="img-thumbnail " width="40px" alt="perfil"></td>';
+                        }else{
+                          echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail " width="40px" alt="perfil"></td>';
+                        }
+
+                        echo '<td>'.$value["perfil"].'</td>';
+
+                          if($value["estado"] != 0){
+
+                            echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="0">Activado</button></td>';
+
+                          }else{
+
+                            echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1">Desactivado</button></td>';
+
+                          }             
+
+                          echo '<td>'.$value["ultimo_login"].'</td>
+                          <td>
+
+                            <div class="btn-group">
+                                
+                              <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+
+                              <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
+
+                            </div>  
+
+                          </td>
+
+                        </tr>';
+              }
+
+
+            ?>
+
+            
             </tbody>
           </table>
         </div>
@@ -66,7 +101,11 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Ventana modal -->
+  <!--
+
+    Ventana modal  AGREGAR USUARIO
+    
+    -->
   <div id="modalAgregarUsuario" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -118,7 +157,7 @@
                         <option value="">Seleccionar Perfil</option>
                         <option value="Administrador">Administrador</option>
                         <option value="Especial">Especial</option>
-                        <option value="Administrador">Vendedor</option>
+                        <option value="Vendedor">Vendedor</option>
                       
                       </select>
                     </div>
@@ -128,9 +167,9 @@
                   <!-- Entradad para Subir Foto -->
                   <div class="form-group">
                     <div class="panel">Subir Foto</div>
-                    <input type="file" id="nuevaFoto" name="nuevaFoto">
-                    <p class="help-block">Peso Máximo de la foto 200 MB</p>
-                      <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbail" width="100px" alt="">
+                    <input type="file" class="nuevaFoto" name="nuevaFoto">
+                    <p class="help-block">Peso Máximo de la foto 2 MB</p>
+                      <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbail previsualizar" width="100px" alt="">
                   </div>
 
 
@@ -154,5 +193,117 @@
   </div>
 
   <!-- ventana Modal fin -->
+<!-- 
+  ############################################## 
+  ############################################## 
+      
+  -->
 
-  
+
+  <!--
+
+    Ventana modal  EDITAR USUARIO
+    
+    -->
+    <div id="modalEditarUsuario" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Contenido de Modal -->
+      <div class="modal-content">
+
+        <form role="form" method="POST"  enctype="multipart/form-data">
+
+      <!-- modal-header -->
+            <div class="modal-header" style="background: #605CA8; color:white;">
+              <button type="button" style="background: #605CA8;" class="close" data-simiss="modal">&times;</button>
+              <h4 class="modal-title">Editar Usuario</h4>
+            </div>
+
+            <!--Modal-Body  -->
+            <div class="modal-body">
+              <div class="box-body">
+              <!-- Entrada de Formulario -->
+              <!-- Nombre -->
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                      <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
+                    
+                    </div>
+                  </div>
+
+
+              <!--  Entrada de Usuario -->
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                      <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value=""  readonly>
+                    
+                    </div>
+                  </div>
+
+                  <!-- Entrada de PWD -->
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                      <input type="password" class="form-control input-lg" name="editarPassword" placeholder=" nueva contraseña">
+                      <input type="hidden" id="passwordActual" name="passwordActual">
+                    
+                    </div>
+                  </div>
+
+                  <!-- Entrada seleccion de Perfil -->
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                      <select name="editarPerfil" class="form-contorl input-lg">
+                        <option value="" id="editarPerfil"></option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Especial">Especial</option>
+                        <option value="Vendedor">Vendedor</option>
+                      
+                      </select>
+                    </div>
+                  </div>
+
+
+                  <!-- Entradad para Subir Foto -->
+                  <div class="form-group">
+                    <div class="panel">Subir Foto</div>
+                    <input type="file" class="nuevaFoto" name="editarFoto">
+                    <p class="help-block">Peso Máximo de la foto 2 MB</p>
+                      <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbail previsualizar" width="100px" alt="">
+                      <input type="hidden" name="fotoActual" id="fotoActual">
+                  </div>
+
+
+              </div>
+              <p></p>
+            </div>
+          <!-- Modal Footer -->
+          <div class="modal-footer">
+              <button type="button" class="btn btn-default pull-left" style="background: #605CA8; color:#fafafa;" dtat-dismiss="modal">Salir</button>
+
+              <button type="submit" class="btn btn-primary" style="background: #605CA8;">Modificar Usuario</button>
+          </div>
+
+          <?php
+             $editarUsuario = new ControladorUsuarios();
+             $editarUsuario -> ctrEditarUsuario();
+          ?>
+        </form> 
+      </div>
+    </div>
+  </div>
+
+  <!-- ventana Modal fin -->
+
+  <!-- Borra Usuarios -->
+
+      <?php
+
+      $borrarUsuario = new ControladorUsuarios();
+      $borrarUsuario -> ctrBorrarUsuario();
+
+    ?> 
