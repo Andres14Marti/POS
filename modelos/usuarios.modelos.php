@@ -53,11 +53,7 @@ class ModeloUsuarios{
 			$stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
 
 			if($stmt->execute()){
-				return "Ok";
-<<<<<<< Updated upstream
-=======
-				$stmt->close();
->>>>>>> Stashed changes
+				return "ok";
 			}
 			else
 			{
