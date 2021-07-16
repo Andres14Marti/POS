@@ -54,6 +54,10 @@ class ModeloUsuarios{
 
 			if($stmt->execute()){
 				return "Ok";
+<<<<<<< Updated upstream
+=======
+				$stmt->close();
+>>>>>>> Stashed changes
 			}
 			else
 			{
