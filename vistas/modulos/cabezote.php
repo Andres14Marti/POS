@@ -29,8 +29,10 @@
 
                     <?php
                         if($_SESSION["foto"] != ""){
+                            
                             echo ' <img src="'.$_SESSION["foto"].'" alt="" class="user-image">';
                         }else{
+
                             echo ' <img src="vistas/img/usuarios/default/anonymous.png" alt="" class="user-image">';
                         }
                     ?>

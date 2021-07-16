@@ -21,6 +21,7 @@ class ModeloUsuarios{
 			return $stmt -> fetch();
 		}
 		else{
+			
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
 	
 			$stmt -> execute();
@@ -52,14 +53,15 @@ class ModeloUsuarios{
 			$stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
 
 			if($stmt->execute()){
-				return "ok";
+				return "Ok";
 			}
 			else
 			{
 				return "error";
+				$stmt->close();
 			}
 
-			$stmt->close();
+			// $stmt->close();
 
 			$stmt = null;
 	}

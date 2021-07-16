@@ -142,7 +142,7 @@ class ControladorUsuarios{
 
 				$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
 
-				if($respuesta == "ok"){
+				if($respuesta == "Ok"){
 					echo '<script>
 				   
 				   		
@@ -267,7 +267,7 @@ class ControladorUsuarios{
 
 						imagejpeg($destino, $ruta);
 
-					}
+					} 
 
 					if($_FILES["editarFoto"]["type"] == "image/png"){
 

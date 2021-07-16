@@ -52,8 +52,11 @@
                         <td>'.$value["usuario"].'</td>';
 
                         if($value["foto"] != ""){
+
                           echo '<td><img src="'.$value["foto"].'" class="img-thumbnail " width="40px" alt="perfil"></td>';
+
                         }else{
+
                           echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail " width="40px" alt="perfil"></td>';
                         }
 
@@ -115,7 +118,7 @@
         <form role="form" method="POST"  enctype="multipart/form-data">
       <!-- modal-header -->
             <div class="modal-header" style="background: #605CA8; color:white;">
-              <button type="button" style="background: #605CA8;" class="close" data-simiss="modal">&times;</button>
+              <button type="button" style="background: #605CA8;" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Agregar Usuario</h4>
             </div>
             <!--Modal-Body  -->
@@ -178,7 +181,7 @@
             </div>
           <!-- Modal Footer -->
           <div class="modal-footer">
-              <button type="button" class="btn btn-default pull-left" style="background: #605CA8; color:#fafafa;" dtat-dismiss="modal">Salir</button>
+              <button type="button" class="btn btn-default pull-left" style="background: #605CA8; color:#fafafa;" data-dismiss="modal">Salir</button>
 
               <button type="submit" class="btn btn-primary" style="background: #605CA8;">Guardar Usuario</button>
           </div>
@@ -215,7 +218,7 @@
 
       <!-- modal-header -->
             <div class="modal-header" style="background: #605CA8; color:white;">
-              <button type="button" style="background: #605CA8;" class="close" data-simiss="modal">&times;</button>
+              <button type="button" style="background: #605CA8;" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Editar Usuario</h4>
             </div>
 
@@ -283,7 +286,7 @@
             </div>
           <!-- Modal Footer -->
           <div class="modal-footer">
-              <button type="button" class="btn btn-default pull-left" style="background: #605CA8; color:#fafafa;" dtat-dismiss="modal">Salir</button>
+              <button type="button" class="btn btn-default pull-left" style="background: #605CA8; color:#fafafa;" data-dismiss="modal">Salir</button>
 
               <button type="submit" class="btn btn-primary" style="background: #605CA8;">Modificar Usuario</button>
           </div>
@@ -304,6 +307,6 @@
       <?php
 
       $borrarUsuario = new ControladorUsuarios();
-      $borrarUsuario -> ctrBorrarUsuario();
+      // $borrarUsuario -> ctrBorrarUsuario();
 
     ?> 
