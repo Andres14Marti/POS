@@ -25,24 +25,35 @@ class ControladorUsuarios{
 
 				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
+		
 				if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
 
-					// =========================================================
-					// Variables de Sesion
-					// =========================================================
+					if($respuesta["estado"] == 1){
 
-					$_SESSION["iniciarSesion"] = "ok";
-					$_SESSION["id"] = $respuesta["id"];
-					$_SESSION["nombre"] = $respuesta["nombre"];
-					$_SESSION["usuario"] = $respuesta["usuario"];
-					$_SESSION["foto"] = $respuesta["foto"];
-					$_SESSION["perfil"] = $respuesta["perfil"];
+							// =========================================================
+							// Variables de Sesion
+							// =========================================================
 
-					echo '<script>
+							$_SESSION["iniciarSesion"] = "ok";
+							$_SESSION["id"] = $respuesta["id"];
+							$_SESSION["nombre"] = $respuesta["nombre"];
+							$_SESSION["usuario"] = $respuesta["usuario"];
+							$_SESSION["foto"] = $respuesta["foto"];
+							$_SESSION["perfil"] = $respuesta["perfil"];
 
-						window.location = "inicio";
+							echo '<script>
 
-					</script>';
+								window.location = "inicio";
+
+							</script>';
+
+
+					}
+					else {
+
+						echo '<br><div class="alert alert-danger">Error al ingresar </div>';
+
+					}
 
 				}else{
 

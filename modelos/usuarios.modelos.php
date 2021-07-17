@@ -53,7 +53,8 @@ class ModeloUsuarios{
 			$stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
 
 			if($stmt->execute()){
-				return "ok";
+				return "Ok";
+				$stmt->close();
 			}
 			else
 			{
@@ -125,4 +126,6 @@ class ModeloUsuarios{
 		$stmt = null;
 
 	}
+
+	
 }
