@@ -22,7 +22,7 @@
             </button>
         </div>
         <div class="box-body">
-          <table class="table table-bordered table-striped dt-responsive tablas">
+        <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
             <thead>
               <tr>
                 <th style="width:10px">Id</th>
@@ -53,11 +53,11 @@
 
                         if($value["foto"] != ""){
 
-                          echo '<td><img src="'.$value["foto"].'" class="img-thumbnail " width="40px" alt="perfil"></td>';
+                          echo '<td><img src="'.$value["foto"].'" class="img-thumbnail " width="40px"></td>';
 
                         }else{
 
-                          echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail " width="40px" alt="perfil"></td>';
+                          echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail " width="40px"></td>';
                         }
 
                         echo '<td>'.$value["perfil"].'</td>';
@@ -104,11 +104,9 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <!--
-
-    Ventana modal  AGREGAR USUARIO
-    
-    -->
+<!--=====================================
+MODAL AGREGAR USUARIO
+======================================-->
   <div id="modalAgregarUsuario" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -203,11 +201,9 @@
   -->
 
 
-  <!--
-
-    Ventana modal  EDITAR USUARIO
-    
-    -->
+<!--=====================================
+MODAL EDITAR USUARIO
+======================================-->
     <div id="modalEditarUsuario" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -307,6 +303,6 @@
       <?php
 
       $borrarUsuario = new ControladorUsuarios();
-      // $borrarUsuario -> ctrBorrarUsuario();
+      $borrarUsuario -> ctrBorrarUsuario();
 
     ?> 

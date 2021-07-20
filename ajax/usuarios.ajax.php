@@ -30,7 +30,7 @@ require_once "../modelos/usuarios.modelos.php";
         public $activarId;
 
 
-        public function ajaxActivarUsuario(){
+         public function ajaxActivarUsuario(){
 
             $tabla = "usuarios";
 
@@ -51,7 +51,7 @@ require_once "../modelos/usuarios.modelos.php";
 
         public $validarUsuario;
 
-        public function ajaxValidarUsuario(){
+         public function ajaxValidarUsuario(){
 
             $item = "usuario";
             $valor = $this->validarUsuario;
@@ -64,18 +64,18 @@ require_once "../modelos/usuarios.modelos.php";
 	}
 
 
-        // =====================================================================
-        // Editar Usuarios
-        // =====================================================================
-        if(isset($_POST["idUsuario"])){
+// =====================================================================
+// Editar Usuarios
+// =====================================================================
+if(isset($_POST["idUsuario"])){
 
-            $editar = new AjaxUsuarios();
-            $editar -> idUsuario = $_POST["idUsuario"];
-            $editar -> ajaxEditarUsuario();
+    $editar = new AjaxUsuarios();
+    $editar -> idUsuario = $_POST["idUsuario"];
+    $editar -> ajaxEditarUsuario();
         
-        }
+}
 
-        /*=============================================
+/*=============================================
 ACTIVAR USUARIO
 =============================================*/	
 

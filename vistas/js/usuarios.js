@@ -108,6 +108,26 @@ $(".btnActivar").click(function() {
         processData: false,
         success: function(respuesta) {
 
+            if(window.matchMedia("(max-width:767px)").matches){
+		
+                Swal.fire({
+                   title: "Actualizado",
+                   text: "El usuario ha sido actualizado",
+                   icon: "success",
+                   confirmButtonText: "¡Cerrar!"
+                 }).then(function(result) {
+                 
+                     if (result.value) {
+ 
+                     window.location = "usuarios";
+ 
+                 }
+ 
+               });
+ 
+ 
+         }
+
 
         }
     })
@@ -127,4 +147,65 @@ $(".btnActivar").click(function() {
         $(this).html('Activado');
         $(this).attr('estadoUsuario', 0);
     }
+})
+
+// =============================================================================
+//VALIDAR USUARIO REPETIDO
+// =============================================================================
+
+$('#nuevoUsuario').change(function(){
+
+    $(".alert").remove();
+
+    var usuario = $(this).val();
+
+    var datos = new FormData();
+    datos.append("validarUsuario", usuario);
+
+    $.ajax({
+        url: "ajax/usuarios.ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta) {
+            if(respuesta){
+
+	    		$("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe en la base de datos</div>');
+
+	    		$("#nuevoUsuario").val("");
+
+	    	}
+
+        }
+    })
+
+
+})
+
+// =============================================================================
+// ELIMINAR USUARIO
+// =============================================================================
+
+$(".btnEliminarUsuario").click(function(){
+
+    var idUsuario = $(this).attr("idUsuario");
+    var fotoUsuario = $(this).attr("fotoUsuario");
+    var usuario = $(this).attr("usuario");
+
+    Swal.fire({
+        title: '¿Desea borrar el Usuario?',
+        text: 'puede cancelar la accion',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#605CA8',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Cancelar',
+          confirmButtonText: 'Si, borrar usuario!'
+    }).then(function(result){
+        if(result.value){
+            window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
+        }
+    })
 })
