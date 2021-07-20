@@ -24,6 +24,7 @@ class ControladorUsuarios{
 				$valor = $_POST["ingUsuario"];
 
 				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
+<<<<<<< Updated upstream
 
 		
 				if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
@@ -34,12 +35,24 @@ class ControladorUsuarios{
 							// Variables de Sesion
 							// =========================================================
 
+=======
+				if (is_array($respuesta)){
+					if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
+
+						// =========================================================
+						// Variables de Sesion
+						// =========================================================
+	
+						if($respuesta["estado"] == 1){
+	
+>>>>>>> Stashed changes
 							$_SESSION["iniciarSesion"] = "ok";
 							$_SESSION["id"] = $respuesta["id"];
 							$_SESSION["nombre"] = $respuesta["nombre"];
 							$_SESSION["usuario"] = $respuesta["usuario"];
 							$_SESSION["foto"] = $respuesta["foto"];
 							$_SESSION["perfil"] = $respuesta["perfil"];
+<<<<<<< Updated upstream
 
 							// =========================================================
 							// Registrar fecha para saber el ultimo Login
@@ -80,14 +93,61 @@ class ControladorUsuarios{
 				}else{
 
 					echo '<br><div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
+=======
+	
+							/*=============================================
+							REGISTRAR FECHA PARA SABER EL ÚLTIMO LOGIN
+							=============================================*/
+	
+							date_default_timezone_set('America/Tegucigalpa');
+	
+							$fecha = date('Y-m-d');
+							$hora = date('H:i:s');
+	
+							$fechaActual = $fecha.' '.$hora;
+	
+							$item1 = "ultimo_login";
+							$valor1 = $fechaActual;
+	
+							$item2 = "id";
+							$valor2 = $respuesta["id"];
+	
+							$ultimoLogin = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
+	
+							if($ultimoLogin == "ok"){
+	
+								echo '<script>
+	
+									window.location = "inicio";
+	
+								</script>';
+	
+							}				
+							
+						}else{
+	
+							echo '<br>
+								<div class="alert alert-danger">El usuario aún no está activado</div>';
+	
+						}		
+	
+					}else{
+	
+						echo '<br><div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
+	
+					}
+>>>>>>> Stashed changes
 
 				}
 
-			}	
+				
 
-		}
+			}
 
+		 }	
 	}
+
+	
 
 	/*=============================================
 		REGISTRO DE USUARIO
@@ -439,7 +499,11 @@ class ControladorUsuarios{
 				echo'<script>
 
 				swal.fire({
+<<<<<<< Updated upstream
 					  icon: "success",
+=======
+					  type: "success",
+>>>>>>> Stashed changes
 					  title: "El usuario ha sido borrado correctamente",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar"
