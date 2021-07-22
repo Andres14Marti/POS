@@ -5,95 +5,12 @@ require_once "../modelos/usuarios.modelos.php";
 
 class AjaxUsuarios{
 
-<<<<<<< Updated upstream
-        /*=============================================
-        EDITAR USUARIO
-        =============================================*/	
-=======
 	/*=============================================
 	EDITAR USUARIO
 	=============================================*/	
->>>>>>> Stashed changes
 
 	public $idUsuario;
 
-<<<<<<< Updated upstream
-        public function ajaxEditarUsuario(){
-
-            $item = "id";
-            $valor = $this->idUsuario;
-
-            $respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
-
-            echo json_encode($respuesta);
-
-        }
-
-        /*=============================================
-        ACTIVAR USUARIO
-        =============================================*/	
-
-        public $activarUsuario;
-        public $activarId;
-
-
-         public function ajaxActivarUsuario(){
-
-            $tabla = "usuarios";
-
-            $item1 = "estado";
-            $valor1 = $this->activarUsuario;
-
-            $item2 = "id";
-            $valor2 = $this->activarId;
-
-            $respuesta = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
-
-            echo json_encode($respuesta);
-        }
-
-        /*=============================================
-        VALIDAR NO REPETIR USUARIO
-        =============================================*/	
-
-        public $validarUsuario;
-
-         public function ajaxValidarUsuario(){
-
-            $item = "usuario";
-            $valor = $this->validarUsuario;
-
-            $respuesta = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
-
-            echo json_encode($respuesta);
-
-        }
-	}
-
-
-// =====================================================================
-// Editar Usuarios
-// =====================================================================
-if(isset($_POST["idUsuario"])){
-
-    $editar = new AjaxUsuarios();
-    $editar -> idUsuario = $_POST["idUsuario"];
-    $editar -> ajaxEditarUsuario();
-        
-}
-
-/*=============================================
-ACTIVAR USUARIO
-=============================================*/	
-
-if(isset($_POST["activarUsuario"])){
-
-	$activarUsuario = new AjaxUsuarios();
-	$activarUsuario -> activarUsuario = $_POST["activarUsuario"];
-	$activarUsuario -> activarId = $_POST["activarId"];
-	$activarUsuario -> ajaxActivarUsuario();
-
-=======
 	public function ajaxEditarUsuario(){
 
 		$item = "id";
@@ -167,7 +84,6 @@ if(isset($_POST["activarUsuario"])){
 	$activarUsuario -> activarId = $_POST["activarId"];
 	$activarUsuario -> ajaxActivarUsuario();
 
->>>>>>> Stashed changes
 }
 
 /*=============================================
@@ -180,13 +96,4 @@ if(isset( $_POST["validarUsuario"])){
 	$valUsuario -> validarUsuario = $_POST["validarUsuario"];
 	$valUsuario -> ajaxValidarUsuario();
 
-<<<<<<< Updated upstream
 }
-
-
-
-        
-    
-=======
-}
->>>>>>> Stashed changes
