@@ -38,8 +38,9 @@
   
 
    <!-- DataTables -->
-   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+  <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+
 
   <!--=====================================
   PLUGINS DE JAVASCRIPT
@@ -64,12 +65,17 @@
 
   <!-- Sweet Alert -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script
+  <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+
+  <!-- <script
   src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script> -->
   <!-- <script src="vistas/plugins/SweetAlert2/sweetalert2.all.js"></script>
   <link rel="stylesheet" href="vistas/plugins/SweetAlert2/sweetalert2.min.css"> -->
+
+ 
 
 
 </head>
@@ -152,5 +158,6 @@ if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
 
 <script src="vistas/js/plantilla.js"></script>
 <script src="vistas/js/usuarios.js"></script>
+<script src="vistas/js/categorias.js"></script>
 </body>
 </html>

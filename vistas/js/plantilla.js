@@ -8,7 +8,7 @@ $('.sidebar-menu').tree()
 Data Table
 =============================================*/
 
-$("tablas").DataTable({
+$(".tablas").DataTable({
 
 	"language": {
 
