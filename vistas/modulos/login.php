@@ -25,7 +25,7 @@
             <!-- /.col -->
          
               <div class="col-xs-12">
-                <button type="submit" class="btn btn-primary btn-block btn-flat ">Ingresar</button>
+                <button type="submit" class="btn btn-primary btn-block btn-flat "style="background: #605CA8; color: white;">Ingresar</button>
               </div>
      
        
