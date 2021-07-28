@@ -32,6 +32,8 @@
   <link rel="stylesheet" href="vistas/dist/css/AdminLTE.css">
   <!-- AdminLTE Skins -->
   <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
+  <!-- Ichek Pluggin -->
+  <link rel="stylesheet" href="vistas/plugins/iCheck/all.css">
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -67,6 +69,9 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+
+  <!-- Ichek -->
+  <script src="vistas/plugins/iCheck/icheck.min.js"></script>
 
   <!-- <script
   src="https://code.jquery.com/jquery-3.6.0.js"

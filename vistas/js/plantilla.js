@@ -38,3 +38,12 @@ $(".tablas").DataTable({
 	}
 
 });
+
+// =============================================================================
+// Ichek Jquery
+// =============================================================================
+
+$('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+	checkboxClass: 'icheckbox_minimal-purple',
+	redioClass : 'iradio_minimal-purple'
+})
