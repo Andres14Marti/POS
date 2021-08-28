@@ -22,24 +22,72 @@
             </button>
         </div>
         <div class="box-body">
-          <table class="table table-bordered table-striped dt-responsive  tablaProductos"width="100%">
+          <table class="table table-bordered table-striped dt-responsive tablas"width="100%">
             <thead>
-              <tr>
+              <!-- <tr>
                 <th style="width:10px">Id</th>
                 <th>Imagen</th>
                 <th>Codigo</th>
                 <th>Descripcion</th>
                 <th>Categoria</th>
                 <th>Stock</th>
-                <th>Uniades por Caja</th>
-                <th>Precio por Caja</th>
                 <th>Precio Compra</th>
                 <th>Precio de Venta</th>
                 <th>Agregado</th>
                 <th>Acciones</th>
-              </tr>
-             
+              </tr> -->
+            
             </thead>
+
+            <tbody>
+
+            <?php
+
+                $item = null;
+                $valor = null;
+
+                $productos = ControladorProductos::ctrMostrarProductos($item, $valor);
+
+                foreach($productos as $key => $value){
+
+                    echo '
+                    <tr>
+                    <td>'.($key+1).'</td>
+                    <td><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail " width="40px"></td>
+                    <td>'.$value["codigo"].'</td>
+                    <td>'.$value["descripcion"].'</td>';
+                    
+                    $item = "id";
+                    $valor = $value["id_categorias"];
+
+                    $categoria = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+                    echo '
+
+
+                    <td>'.$categoria["categoria"].'</td>
+                    <td>'.$value["stock"].'</td>
+                    <td>'.$value["unidades_caja"].'</td>
+                    <td>'.$value["precio_caja"].'</td>
+                    <td>'.$value["precio_compra"].'</td>
+                    <td>'.$value["precio_venta"].'</td>
+                    <td>'.$value["fecha"].'</td>
+            
+                    <td>
+                      <div class="btn-group">
+                      
+                        <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                      </div>
+                    </td>
+                  </tr>
+                    
+                    ';
+                }
+
+
+            ?>
+            </tbody>
           </table>
         </div>
         <!-- /.box-body -->
@@ -68,37 +116,11 @@
             <div class="modal-body">
               <div class="box-body">
               <!-- Entrada de Formulario -->
-
-                <!-- Entrada seleccion de Categoria -->
-                <div class="form-group">
-                    <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-th"></i></span>
-                      <select name="nuevaCatagoria" id="nuevaCatagoria" class="form-contorl input-lg" required>
-                        <option value="">Seleccionar Categoria</option>
-
-                        <?php
-
-                            $item = null;
-                            $valor= null;
-
-                            $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
-
-                            foreach($categorias as $key => $value){
-
-                                echo '<option value="'.$value["categoria"].'">'.$value["categoria"].'</option>';
-                            }
-
-                        ?>
-                                   
-                      </select>
-                    </div>
-                  </div>
-
               <!-- Codigo de Producto -->
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-code"></i></span>
-                      <input type="text" class="form-control input-lg" name="nuevoCodigo" id="nuevoCodigo" placeholder="Ingresar Codigo" readonly required>
+                      <input type="text" class="form-control input-lg" name="nuevoCodigo" placeholder="Ingresar Codigo" required>
                     
                     </div>
                   </div>
@@ -112,7 +134,18 @@
                   </div>
 
 
-                
+                  <!-- Entrada seleccion de Categoria -->
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                      <select name="nuevaCatagoria" class="form-contorl input-lg">
+                        <option value="">Seleccionar Categoria</option>
+                        <option value="Cervezas">Cervezas</option>
+                        <option value="abarroteria">abarroteria</option>
+                        <option value="bebidas">bebidas</option>              
+                      </select>
+                    </div>
+                  </div>
 
                     <!--  Entrada de Stock -->
                     <div class="form-group">
